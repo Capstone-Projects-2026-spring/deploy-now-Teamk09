@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Why I Love Docker</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap"
+		rel="stylesheet"
+	/>
+	<style>
+		:root {
+			--ink: #0b1f33;
+			--ocean: #0f8ed7;
+			--deep: #0369a1;
+			--foam: #e8f7ff;
+			--sun: #ffd166;
+			--card: #ffffff;
+			--shadow: 0 18px 45px rgba(3, 26, 48, 0.2);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			font-family: "Space Grotesk", sans-serif;
+			background:
+				radial-gradient(circle at 10% 12%, rgba(255, 209, 102, 0.35), transparent 35%),
+				radial-gradient(circle at 90% 85%, rgba(15, 142, 215, 0.24), transparent 40%),
+				linear-gradient(135deg, #d8f1ff, #f7fdff 55%, #dff4ff);
+			min-height: 100vh;
+			overflow-x: hidden;
+		}
+
+		.waves {
+			position: fixed;
+			inset: auto 0 0;
+			height: 170px;
+			pointer-events: none;
+			background:
+				radial-gradient(130% 120% at 50% 130%, rgba(15, 142, 215, 0.24), transparent 68%),
+				linear-gradient(to top, rgba(15, 142, 215, 0.22), transparent);
+			animation: float 6s ease-in-out infinite;
+		}
+
+		.container {
+			width: min(1020px, 92vw);
+			margin: 0 auto;
+			padding: 3.5rem 0 5rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.hero {
+			display: grid;
+			grid-template-columns: 1.2fr 0.8fr;
+			gap: 1.5rem;
+			align-items: center;
+			margin-bottom: 2.4rem;
+			animation: rise 0.8s ease-out both;
+		}
+
+		.headline {
+			margin: 0;
+			font-family: "Bebas Neue", sans-serif;
+			font-size: clamp(3rem, 9vw, 6.5rem);
+			line-height: 0.94;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			color: var(--deep);
+		}
+
+		.headline span {
+			color: var(--ocean);
+		}
+
+		.lede {
+			margin: 1rem 0 0;
+			font-size: clamp(1rem, 2.4vw, 1.25rem);
+			max-width: 55ch;
+		}
+
+		.docker-badge {
+			justify-self: end;
+			background: var(--card);
+			border-radius: 1.4rem;
+			padding: 1.2rem;
+			box-shadow: var(--shadow);
+			width: min(260px, 100%);
+			text-align: center;
+			transform: rotate(-2deg);
+			animation: rise 0.95s ease-out 0.15s both;
+		}
+
+		.docker-badge .icon {
+			font-size: 3rem;
+			line-height: 1;
+			margin-bottom: 0.35rem;
+		}
+
+		.docker-badge strong {
+			display: block;
+			font-size: 1.1rem;
+			color: var(--deep);
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 1rem;
+			margin-top: 2rem;
+		}
+
+		.card {
+			background: var(--card);
+			border: 1px solid rgba(15, 142, 215, 0.12);
+			border-radius: 1.1rem;
+			padding: 1.15rem 1.1rem;
+			box-shadow: 0 8px 22px rgba(3, 26, 48, 0.08);
+			animation: rise 0.8s ease both;
+		}
+
+		.card:nth-child(2) {
+			animation-delay: 0.1s;
+		}
+
+		.card:nth-child(3) {
+			animation-delay: 0.2s;
+		}
+
+		.card h2 {
+			margin: 0 0 0.55rem;
+			font-size: 1.1rem;
+			color: var(--deep);
+		}
+
+		.card p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		.quote {
+			margin-top: 1.4rem;
+			background: linear-gradient(90deg, rgba(15, 142, 215, 0.12), rgba(255, 209, 102, 0.22));
+			border-radius: 1rem;
+			padding: 1rem 1.1rem;
+			font-weight: 500;
+			border-left: 5px solid var(--ocean);
+			animation: rise 1s ease-out 0.25s both;
+		}
+
+		.signature {
+			margin-top: 1rem;
+			font-family: "Bebas Neue", sans-serif;
+			letter-spacing: 0.07em;
+			font-size: 1.45rem;
+			color: var(--deep);
+		}
+
+		@keyframes rise {
+			from {
+				opacity: 0;
+				transform: translateY(16px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes float {
+			0%,
+			100% {
+				transform: translateY(0px);
+			}
+			50% {
+				transform: translateY(-8px);
+			}
+		}
+
+		@media (max-width: 900px) {
+			.hero {
+				grid-template-columns: 1fr;
+			}
+
+			.docker-badge {
+				justify-self: start;
+			}
+
+			.grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="waves" aria-hidden="true"></div>
+
+	<main class="container">
+		<section class="hero">
+			<div>
+				<h1 class="headline">I <span>Love</span> Docker</h1>
+				<p class="lede">
+					Docker gives me confidence to build boldly. My apps run the same on my laptop,
+					in staging, and in production. That reliability feels like a superpower.
+				</p>
+			</div>
+
+			<aside class="docker-badge" aria-label="Docker fan badge">
+				<div class="icon" aria-hidden="true">🐳</div>
+				<strong>Container-First Mindset</strong>
+				<p>Ship faster. Debug less. Sleep better.</p>
+			</aside>
+		</section>
+
+		<section class="grid" aria-label="Reasons I love Docker">
+			<article class="card">
+				<h2>Consistency Everywhere</h2>
+				<p>
+					Docker removes the "works on my machine" drama by packaging code, runtime,
+					and dependencies into one predictable environment.
+				</p>
+			</article>
+			<article class="card">
+				<h2>Speedy Collaboration</h2>
+				<p>
+					Teammates can clone the project, run one command, and start building.
+					Onboarding becomes a sprint instead of a scavenger hunt.
+				</p>
+			</article>
+			<article class="card">
+				<h2>Cleaner Deployments</h2>
+				<p>
+					From tiny services to full stacks, containerized deployments are easier to reason
+					about, scale, and rollback when needed.
+				</p>
+			</article>
+		</section>
+
+		<p class="quote">
+			"Docker is my favorite bridge between idea and production. It makes complex systems feel
+			understandable."
+		</p>
+
+		<p class="signature">Built with love, containers, and coffee.</p>
+	</main>
+</body>
+</html>
+

@@ -46,6 +46,24 @@
         .student-banner .tagline {
             font-size: 1.15rem;
         }
+
+        .student-banner .docker-link {
+            display: inline-block;
+            margin-top: 0.9rem;
+            padding: 0.55rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.12);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .student-banner .docker-link:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+        }
         /* ================================================================
            END STUDENT EDIT ZONE styles
            ================================================================ */
@@ -128,7 +146,8 @@
 
     <div class="student-banner">
         <h1>👋 Hello from <strong>Cameron</strong>!</h1>
-        <p class="tagline">Yay I love deploying stuff<code style="background:rgba(255,255,255,0.2);color:#fff;">public/index.html</code> and push to make this yours.</p>
+        <p class="tagline">Yay I love deploying stuff</p>
+        <a class="docker-link" href="docker.html">Read why I love Docker</a>
     </div>
 
     <!-- ================================================================
